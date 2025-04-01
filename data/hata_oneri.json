@@ -1,0 +1,253 @@
+{
+    "twig": {
+        "template_not_found": {
+            "patterns": ["Unable to find template"],
+            "suggestions": [
+                "Şablon dosyası ({templateName}) belirtilen dizinde bulunamadı.",
+                "Şablon dosyasının adını ve uzantısını kontrol edin.",
+                "Şablon dizini yapısını kontrol edin: {lookPath}"
+            ]
+        },
+        "syntax_error": {
+            "patterns": ["Unexpected token", "Unexpected"],
+            "suggestions": [
+                "Twig sözdizimi hatası: {unexpectedPart}",
+                "Şunları kontrol edin:",
+                "1. Twig etiketlerinin doğru açılıp kapandığını kontrol edin: {% ... %}, {{ ... }}, {# ... #}",
+                "2. if/for bloklarının endif/endfor ile doğru şekilde kapatıldığından emin olun."
+            ]
+        }
+    },
+    "latte": {
+        "template_not_found": {
+            "patterns": ["Template", "not found", "missing template"],
+            "suggestions": [
+                "Latte şablon dosyası bulunamadı.",
+                "Şablon dosyasının adını ve uzantısını kontrol edin (.latte).",
+                "Şablonun doğru dizinde olup olmadığını kontrol edin.",
+                "Render fonksiyonunda tam dosya yolunu doğru belirttiğinizden emin olun."
+            ]
+        },
+        "compiler_error": {
+            "patterns": ["Latte\\CompileException", "Unexpected", "Syntax error"],
+            "suggestions": [
+                "Latte şablon sözdizimi hatası.",
+                "Şablondaki makroların doğru yazıldığını kontrol edin ({if} ... {/if}).",
+                "Değişkenlerin doğru şekilde kullanıldığını kontrol edin ($variable).",
+                "Süslü parantezlerin düzgün kapatıldığından emin olun.",
+                "Latte içinde PHP kullanırken sözdizimi hatası olmadığından emin olun."
+            ]
+        },
+        "unknown_macro": {
+            "patterns": ["Unknown macro", "Unexpected macro"],
+            "suggestions": [
+                "Tanımlanmamış bir Latte makrosu kullanılıyor: {macroName}",
+                "Makro adını kontrol edin ve yazım hatası olmadığından emin olun.",
+                "Özel makrolar kullanıyorsanız, bunları Latte\\Engine'e kaydettiğinizden emin olun.",
+                "Makronun Latte versiyonunuzda desteklenip desteklenmediğini kontrol edin."
+            ]
+        },
+        "variable_not_defined": {
+            "patterns": ["Undefined variable", "Variable", "has not been defined"],
+            "suggestions": [
+                "Tanımlanmamış değişken kullanılıyor.",
+                "Değişkenin controller'dan şablona aktarıldığından emin olun.",
+                "Değişken adını kontrol edin (büyük/küçük harf duyarlıdır).",
+                "Latte'nin strict modu etkinse, değişkeni kullanmadan önce tanımlanması gerekir veya n:syntax=off ile kontrol edilebilir."
+            ]
+        }
+    },
+    "file": {
+        "not_found": {
+            "patterns": ["Failed opening required", "No such file or directory"],
+            "suggestions": [
+                "Dosya yolunu kontrol edin. Muhtemelen dosya mevcut değil veya erişim izni yok.",
+                "Tam dosya yolu yerine göreceli yol kullanmayı deneyin.",
+                "Dizin ayrıcıları için doğru format kullanıldığından emin olun (Windows: '\\', Unix/Mac: '/').",
+                "Dosya adının büyük/küçük harf duyarlılığını kontrol edin."
+            ]
+        }
+    },
+    "class": {
+        "not_found": {
+            "patterns": ["Class", "not found", "Class \\'"],
+            "suggestions": [
+                "Sınıf adını ve namespace'i kontrol edin: '{className}'",
+                "Composer autoload'u yenileyin: `composer dump-autoload`",
+                "İlgili sınıf dosyasının doğru dizinde olduğundan emin olun.",
+                "use ifadesini kontrol edin, namespace doğru mu?"
+            ]
+        }
+    },
+    "database": {
+        "connection_error": {
+            "patterns": ["Connection refused", "No connection", "Unable to connect", "Access denied"],
+            "suggestions": [
+                "Veritabanı bağlantı hatası:",
+                "1. Veritabanı sunucusunun çalıştığından emin olun.",
+                "2. Veritabanı kullanıcı adı ve şifresini kontrol edin.",
+                "3. Host adresinin doğru olduğunu doğrulayın.",
+                "4. Firewall/güvenlik duvarı ayarlarını kontrol edin."
+            ]
+        },
+        "query_error": {
+            "patterns": ["SQL syntax", "SQL error", "Query failed", "Unknown column", "SQLSTATE"],
+            "suggestions": [
+                "SQL sorgu hatası:",
+                "1. Sorgu sözdizimini kontrol edin.",
+                "2. Tablo ve sütun isimlerinin doğru yazıldığından emin olun.",
+                "3. Özel karakterler için uygun escape fonksiyonları kullanın.",
+                "4. Sorguyu veritabanı GUI aracında test edin."
+            ]
+        },
+        "table_not_found": {
+            "patterns": ["Table", "doesn't exist", "not found"],
+            "suggestions": [
+                "Tablo bulunamadı hatası:",
+                "1. Tablonun veritabanında var olduğunu kontrol edin.",
+                "2. Tablo adının doğru yazıldığından emin olun.",
+                "3. Veritabanı ön ekini (prefix) kontrol edin.",
+                "4. Migration'ların çalıştırıldığından emin olun."
+            ]
+        }
+    },
+    "php": {
+        "undefined_function": {
+            "patterns": ["Call to undefined function", "Function not found"],
+            "suggestions": [
+                "Tanımsız fonksiyon hatası:",
+                "1. Fonksiyon adını ve yazımını kontrol edin.",
+                "2. İlgili PHP eklentisinin yüklü olduğundan emin olun.",
+                "3. Namespace kullanıyorsanız, fonksiyonun namespace'ini kontrol edin.",
+                "4. Özel fonksiyonlar için ilgili dosyanın dahil edildiğinden emin olun."
+            ]
+        },
+        "type_error": {
+            "patterns": ["Type error", "must be an instance of", "expects parameter", "cannot be converted to"],
+            "suggestions": [
+                "PHP tip hatası:",
+                "1. Fonksiyona gönderilen parametrelerin türlerini kontrol edin.",
+                "2. Değişkenlerin beklenen tipte olduğundan emin olun.",
+                "3. Tip dönüşümü (type casting) kullanmayı deneyin.",
+                "4. PHP 7+ kullanıyorsanız, tip bildirimleri (type hints) ekleyin."
+            ]
+        },
+        "memory_limit": {
+            "patterns": ["Allowed memory size", "memory_limit"],
+            "suggestions": [
+                "PHP bellek limiti aşıldı:",
+                "1. php.ini dosyasında memory_limit değerini artırın.",
+                "2. Komut satırında: php -d memory_limit=256M script.php",
+                "3. Kodda: ini_set('memory_limit', '256M');",
+                "4. Büyük veri yapıları yerine jeneratörler (generators) kullanmayı düşünün.",
+                "5. Bellek sızıntılarını kontrol edin ve nesneleri uygun şekilde temizleyin."
+            ]
+        }
+    },
+    "module": {
+        "not_found": {
+            "patterns": ["Module", "not found", "could not be loaded"],
+            "suggestions": [
+                "Modül bulunamadı:",
+                "1. Modül dizin yapısını ve dosyalarını kontrol edin.",
+                "2. Modül adını ve yazımını doğrulayın.",
+                "3. Modülün etkinleştirildiğinden emin olun.",
+                "4. Modül bağımlılıklarını kontrol edin."
+            ]
+        },
+        "dependency_error": {
+            "patterns": ["dependency", "requires", "missing dependency"],
+            "suggestions": [
+                "Modül bağımlılık hatası:",
+                "1. Bağımlı olduğu diğer modüllerin yüklü ve etkin olduğundan emin olun.",
+                "2. Modül versiyonlarının uyumlu olduğunu kontrol edin.",
+                "3. Bağımlılık çakışmalarını çözümleyin.",
+                "4. Gerekli PHP eklentilerini yükleyin."
+            ]
+        }
+    },
+    "template": {
+        "variable_missing": {
+            "patterns": ["Undefined variable", "Variable", "not defined", "undefined index"],
+            "suggestions": [
+                "Şablonda tanımlanmamış değişken kullanımı:",
+                "1. Controller'da değişkenin şablona gönderildiğinden emin olun.",
+                "2. Değişken adını ve büyük/küçük harf kullanımını kontrol edin.",
+                "3. Şablona gönderilen veri yapısını (array, object) kontrol edin.",
+                "4. isset() veya empty() fonksiyonlarını kullanarak kontrol ekleyin."
+            ]
+        },
+        "include_error": {
+            "patterns": ["include", "require", "failed", "cannot include"],
+            "suggestions": [
+                "Şablon dahil etme hatası:",
+                "1. Dahil edilmeye çalışılan dosyanın var olduğunu kontrol edin.",
+                "2. Dosya yolunun doğru olduğundan emin olun.",
+                "3. Dosya izinlerini kontrol edin.",
+                "4. Göreli yol yerine mutlak yol kullanmayı deneyin."
+            ]
+        }
+    },
+    "permission": {
+        "file_permission": {
+            "patterns": ["Permission denied", "is not writable", "cannot write", "failed to open"],
+            "suggestions": [
+                "Dosya izin hatası:",
+                "1. Dosya ve dizin izinlerini kontrol edin (chmod).",
+                "2. Web sunucusunun (www-data, apache, nginx) yazma iznine sahip olduğundan emin olun.",
+                "3. safe_mode ve open_basedir PHP yapılandırmalarını kontrol edin.",
+                "4. SELinux veya AppArmor kısıtlamalarını kontrol edin."
+            ]
+        }
+    },
+    "cache": {
+        "cache_error": {
+            "patterns": ["cache", "failed to write", "cannot read cache"],
+            "suggestions": [
+                "Önbellek hatası:",
+                "1. Önbellek dizininin yazılabilir olduğunu kontrol edin.",
+                "2. Önbellek sisteminin (Redis, Memcached vb.) çalıştığından emin olun.",
+                "3. Önbellek yapılandırma ayarlarını kontrol edin.",
+                "4. Önbelleği temizlemeyi deneyin.",
+                "5. Disk alanının yeterli olduğundan emin olun."
+            ]
+        }
+    },
+    "routing": {
+        "route_not_found": {
+            "patterns": ["route not found", "no route", "not match"],
+            "suggestions": [
+                "Rota bulunamadı hatası:",
+                "1. URL'in doğru olduğunu kontrol edin.",
+                "2. Rota tanımlamalarını kontrol edin (routes.php).",
+                "3. Rota parametrelerinin doğru formatta olduğundan emin olun.",
+                "4. HTTP metodu (GET, POST vb.) uyumluluğunu kontrol edin.",
+                "5. Orta katman (middleware) filtrelerini kontrol edin."
+            ]
+        },
+        "controller_error": {
+            "patterns": ["controller", "action", "not found", "does not exist"],
+            "suggestions": [
+                "Controller/Action hatası:",
+                "1. Controller sınıfının var olduğunu kontrol edin.",
+                "2. Action metodunun controller'da tanımlı olduğunu kontrol edin.",
+                "3. Controller namespace'ini kontrol edin.",
+                "4. Controller metodunun erişilebilir (public) olduğundan emin olun.",
+                "5. Controller sınıf adı ve dosya adı eşleşmesini kontrol edin."
+            ]
+        }
+    },
+    "autoload": {
+        "class_loading": {
+            "patterns": ["autoload", "cannot load class", "failed to load"],
+            "suggestions": [
+                "Sınıf yükleme hatası:",
+                "1. Composer autoload yapılandırmasını kontrol edin (composer.json).",
+                "2. Composer'ı güncelleyin: `composer dump-autoload -o`",
+                "3. Sınıf dosyasının belirtilen yolda olduğundan emin olun.",
+                "4. Namespace ve sınıf adı PSR-4 standartlarına uygun mu kontrol edin.",
+                "5. Dosya adı ile sınıf adının eşleştiğinden emin olun."
+            ]
+        }
+    }
+}
